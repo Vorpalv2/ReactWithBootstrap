@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Navbar Title="Homepage" />
-      <Header Heading="Testing" />
+      <Header Heading="Text Analyzer" />
       <TextForm Number="10" />
       <Button />
     </div>

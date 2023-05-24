@@ -32,6 +32,9 @@ const TextForm = (props) => {
         LowerCase
       </button>
       <p className="my-2 mx-3">Character Amount is : {first.length}</p>
+      <p className="my-2 mx-3">
+        Word Amount is : {first.split(" ").length - 1}
+      </p>
     </>
   );
 };
