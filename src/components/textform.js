@@ -14,6 +14,12 @@ const TextForm = (props) => {
     setfirst(newFirst);
   };
 
+  const CopyContent = () => {
+    let input = document.getElementById("exampleFormControlTextarea1");
+    input.select();
+    navigator.clipboard.writeText(input.value);
+  };
+
   return (
     <>
       <div className="mb-6 mx-4 ">
@@ -30,6 +36,9 @@ const TextForm = (props) => {
       </button>
       <button className="btn btn-primary my-2 mx-3" onClick={toLower}>
         LowerCase
+      </button>
+      <button className="btn btn-primary my-2 mx-3" onClick={CopyContent}>
+        Copy Content
       </button>
       <p className="my-2 mx-3">Character Amount is : {first.length}</p>
       <p className="my-2 mx-3">
