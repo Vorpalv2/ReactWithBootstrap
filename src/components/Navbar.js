@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Navbar = (props) => {
+  const [Title, SetTitle] = useState(``);
+  const [Theme, SetTheme] = useState({
+    backgroundColor: `black`,
+    color: `white`,
+  });
+
+  const Themeing = (props) => {
+    if (Theme.backgroundColor === `white`) {
+      SetTheme({
+        backgroundColor: `black`,
+        color: `white`,
+      });
+      SetTitle("Dark Theme");
+    } else {
+      SetTheme({
+        backgroundColor: `white`,
+        color: `black`,
+      });
+      SetTitle("Light Theme");
+    }
+  };
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav
+        style={Theme}
+        onChange={Themeing}
+        className="navbar navbar-expand-lg bg-body-tertiary"
+      >
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
             {props.Title}
@@ -24,16 +50,19 @@ const Navbar = (props) => {
           </div>
           <div className="form-check form-switch">
             <input
+              style={Theme}
               className="form-check-input"
               type="checkbox"
               role="switch"
               id="flexSwitchCheckDefault"
             />
             <label
+              style={Theme}
               className="form-check-label"
               htmlFor="flexSwitchCheckDefault"
+              onChange={Themeing}
             >
-              Theme Switch
+              {Title}
             </label>
           </div>
         </div>
